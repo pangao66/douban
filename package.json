@@ -1,0 +1,26 @@
+{
+  "name": "douban-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "ts-node src/app.ts",
+    "dev": "./node_modules/.bin/nodemon src/app.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/puppeteer": "^1.20.2",
+    "jquery": "^3.4.1",
+    "koa": "^2.11.0",
+    "nodemon": "^1.19.4",
+    "puppeteer": "^2.0.0",
+    "ts-node": "^8.4.1",
+    "typescript": "^3.7.2"
+  },
+  "devDependencies": {
+    "@types/jquery": "^3.3.31",
+    "@types/koa": "^2.0.52"
+  }
+}
