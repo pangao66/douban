@@ -1,6 +1,7 @@
 import puppeteer from 'puppeteer'
 import $ from 'jquery'
 import {ILinkItem} from "../types"
+import process from 'process'
 
 const url = `https://movie.douban.com/explore#!type=movie&tag=%E6%9C%80%E6%96%B0&page_limit=20&page_start=0`
 const sleep = (time: number) => new Promise((resolve) => {
@@ -23,8 +24,7 @@ const sleep = (time: number) => new Promise((resolve) => {
     await sleep(3000)
     await page.click('.more')
   }
-  const result = await page.evaluate(() => {
-    //
+  const result: ILinkItem[] = await page.evaluate(() => {
     // @ts-ignore
     const $ = window.$ || $
     const items = $('.list-wp a')
@@ -48,4 +48,6 @@ const sleep = (time: number) => new Promise((resolve) => {
   })
   // browser.close()
   console.log(result)
+  process.send({result, code: 1})
+  process.exit(0)
 })()
