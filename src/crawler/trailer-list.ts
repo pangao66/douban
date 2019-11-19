@@ -48,6 +48,8 @@ const sleep = (time: number) => new Promise((resolve) => {
   })
   // browser.close()
   console.log(result)
-  process.send({result, code: 1})
-  process.exit(0)
+  if (typeof process.send === 'function') {
+    process.send({result, code: 1})
+    process.exit(0)
+  }
 })()
