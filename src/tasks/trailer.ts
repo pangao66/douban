@@ -3,7 +3,7 @@ import {resolve} from 'path'
 
 
 (async () => {
-  const script = resolve(__dirname, '../crawler/trailer-list')
+  const script = resolve(__dirname, '../crawler/video')
   const child = cp.fork(script, [])
   let invoked = false
   child.on('error', (err) => {
@@ -19,7 +19,6 @@ import {resolve} from 'path'
     console.log(err)
   })
   child.on('message', (data) => {
-    let result = data.result
-    console.log(result)
+    console.log(data)
   })
 })()

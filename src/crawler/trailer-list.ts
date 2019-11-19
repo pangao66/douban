@@ -47,7 +47,9 @@ const sleep = (time: number) => new Promise((resolve) => {
     return links
   })
   // browser.close()
-  console.log(result)
-  process.send({result, code: 1})
+  // console.log(result)
+  // process.send({result, code: 1})
+  // @ts-ignore
+  process.send({result})
   process.exit(0)
 })()
